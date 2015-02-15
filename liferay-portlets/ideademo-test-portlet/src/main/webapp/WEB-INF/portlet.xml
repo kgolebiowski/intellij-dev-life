@@ -4,7 +4,7 @@
 	<portlet>
 		<portlet-name>ideademo-test-portlet</portlet-name>
 		<display-name>ideademo-test-portlet</display-name>
-		<portlet-class>com.liferay.util.bridges.mvc.MVCPortlet</portlet-class>
+		<portlet-class>SampleMVCPortlet</portlet-class>
 		<init-param>
 			<name>view-template</name>
 			<value>/view.jsp</value>
