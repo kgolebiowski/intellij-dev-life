@@ -1,80 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.liferay.devlife.kgolebiowski</groupId>
-  <artifactId>ideademo-parent</artifactId>
-  <version>1.0</version>
-  <packaging>pom</packaging>
-  <name>IntelliJ IDEA Demo Parent</name>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.liferay.devlife.kgolebiowski</groupId>
+    <artifactId>ideademo-parent</artifactId>
+    <version>1.0</version>
+    <packaging>pom</packaging>
+    <name>IntelliJ IDEA Demo Parent</name>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <java.version>1.7</java.version>
-    <liferay.version>6.2.2</liferay.version>
-    <liferay.maven.plugin.version>6.2.2</liferay.maven.plugin.version>
-  </properties>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.7</java.version>
+        <liferay.version>6.2.2</liferay.version>
+        <liferay.maven.plugin.version>6.2.2</liferay.maven.plugin.version>
+        <liferay.home.dir>/Users/kgolebiowski/Documents/praca/Projekty/Liferay_dev.life/liferay-portal-6.2-ce-ga3</liferay.home.dir>
+        <liferay.auto.deploy.dir>${liferay.home.dir}/deploy</liferay.auto.deploy.dir>
+    </properties>
 
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>com.liferay.portal</groupId>
-        <artifactId>portal-service</artifactId>
-        <version>${liferay.version}</version>
-        <scope>provided</scope>
-      </dependency>
-      <dependency>
-        <groupId>com.liferay.portal</groupId>
-        <artifactId>util-bridges</artifactId>
-        <version>${liferay.version}</version>
-        <scope>provided</scope>
-      </dependency>
-      <dependency>
-        <groupId>com.liferay.portal</groupId>
-        <artifactId>util-taglib</artifactId>
-        <version>${liferay.version}</version>
-        <scope>provided</scope>
-      </dependency>
-      <dependency>
-        <groupId>com.liferay.portal</groupId>
-        <artifactId>util-java</artifactId>
-        <version>${liferay.version}</version>
-        <scope>provided</scope>
-      </dependency>
-      <dependency>
-        <groupId>javax.portlet</groupId>
-        <artifactId>portlet-api</artifactId>
-        <version>2.0</version>
-        <scope>provided</scope>
-      </dependency>
-      <dependency>
-        <groupId>javax.servlet</groupId>
-        <artifactId>servlet-api</artifactId>
-        <version>2.4</version>
-        <scope>provided</scope>
-      </dependency>
-      <dependency>
-        <groupId>javax.servlet.jsp</groupId>
-        <artifactId>jsp-api</artifactId>
-        <version>2.0</version>
-        <scope>provided</scope>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
+    <repositories>
 
-  <modules>
+        <!-- Required for Liferay Portal Artifacts -->
+        <repository>
+            <id>liferay-ce</id>
+            <url>https://repository.liferay.com/nexus/content/groups/liferay-ce/</url>
+        </repository>
 
-    <!-- Liferay Plugins -->
+    </repositories>
 
-    <module>liferay-portlets</module>
-    <module>liferay-themes</module>
-    <!-- module>liferay-ext</module -->
+    <pluginRepositories>
 
-    <!-- Other stuff -->
+        <!-- Required for the liferay-maven-plugin -->
+        <pluginRepository>
+            <id>liferay-public</id>
+            <url>https://repository.liferay.com/nexus/content/groups/public</url>
+        </pluginRepository>
 
-    <!-- module>non-liferay-module</module -->
+    </pluginRepositories>
 
-  </modules>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.liferay.portal</groupId>
+                <artifactId>portal-service</artifactId>
+                <version>${liferay.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.liferay.portal</groupId>
+                <artifactId>util-bridges</artifactId>
+                <version>${liferay.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.liferay.portal</groupId>
+                <artifactId>util-taglib</artifactId>
+                <version>${liferay.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.liferay.portal</groupId>
+                <artifactId>util-java</artifactId>
+                <version>${liferay.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>javax.portlet</groupId>
+                <artifactId>portlet-api</artifactId>
+                <version>2.0</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>servlet-api</artifactId>
+                <version>2.4</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet.jsp</groupId>
+                <artifactId>jsp-api</artifactId>
+                <version>2.0</version>
+                <scope>provided</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <modules>
+
+        <!-- Liferay Plugins -->
+
+        <module>liferay-portlets</module>
+        <module>liferay-themes</module>
+        <!-- module>liferay-ext</module -->
+
+        <!-- Other stuff -->
+
+        <!-- module>non-liferay-module</module -->
+
+    </modules>
 
 </project>
