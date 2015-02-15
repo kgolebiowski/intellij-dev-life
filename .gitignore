@@ -1,9 +1,15 @@
+# Maven
+target
+
+# Idea
+*.iml
+.idea
+
+# JRebel
+rebel.xml
+
+# Others
 *.class
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
 *.jar
 *.war
 *.ear
