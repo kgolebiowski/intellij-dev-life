@@ -1,3 +1,4 @@
+import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.model.Group;
 import com.liferay.portal.model.User;
@@ -8,12 +9,15 @@ import javax.portlet.PortletException;
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.Locale;
 
 /**
  * Created by kgolebiowski on 15.02.15.
  */
 public class SampleMVCPortlet extends MVCPortlet {
 
+    // TODO What is this?!
     int firstVar;
     int secondVar;
     int thirdVar;
@@ -24,15 +28,13 @@ public class SampleMVCPortlet extends MVCPortlet {
 
         ThemeDisplay themeDisplay = (ThemeDisplay) request.getAttribute(WebKeys.THEME_DISPLAY);
         User loggedUser = themeDisplay.getUser();
+        Locale currentUserLocale = themeDisplay.getLocale();
 
         Group scopeGroup = themeDisplay.getScopeGroup();
 
-        getClass().getResourceAsStream("/rebel.xml");
+        InputStream resourceAsStream = getClass().getResourceAsStream("");
 
-        firstVar = 1;
-        secondVar = 2;
-
-        thirdVar = firstVar + secondVar;
+        String translatedValue = LanguageUtil.get(currentUserLocale, "");
 
         System.out.println(loggedUser.getFullName());
 
