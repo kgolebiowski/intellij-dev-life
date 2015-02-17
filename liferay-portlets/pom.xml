@@ -15,6 +15,7 @@
 
     <modules>
         <module>ideademo-test-portlet</module>
+        <module>ideademo-testtwo-portlet</module>
     </modules>
 
 </project>
